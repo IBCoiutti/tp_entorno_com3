@@ -7,17 +7,26 @@ descarga y descarga para no saturar el servicio y evitar problemas.
  Luego se deben comprimir las imágenes, y generar un archivo con su suma de
 verificación."""
 
-echo "Introduce el numero de imagenes a generar: "
+echo "Introduce el numero de imagenes a generar: " #impresion de msj
 
-read num_img
+read num_img                                       #usuario define cantidad de img
 cuenta=0
 
-while [ $cuenta -lt $num_img ]
-do
+while [ $cuenta -lt $num_img ]                 #bucle determinado por numero ingresado, guarda una imagen en una carpeta determinada ./img en cada vuelta.
+do                                             #la cuenta sirve para darle otro nombre a cada archivo.(hasta que funcione lo del nombre random)
     wget -P ./img https://source.unsplash.com/random/900%C3%97700/?person/$cuenta.jpeg
     cuenta=$((cuenta + 1))
     echo $cuenta
+    sleep 3
 done
 
-#wget -c https://raw.githubusercontent.com/fernandezpablo85/name_suggestions/master/assets/dict.csv
+var=$(find ./img -type f | wc -l)   #creo una variable con la cantidad de files que hay dentro de la carpeta img
+echo $var
 
+du -sh ./img
+
+if (($var == $num_img))           #si esta variable es igual al numero de img creadas pasa a comprimir la carpeta. pero comprime cada archivo individualmente.
+then  
+    gzip -r ./img
+    du -sh ./img
+fi
