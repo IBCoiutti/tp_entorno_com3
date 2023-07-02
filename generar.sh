@@ -23,40 +23,46 @@ else
    wget https://raw.githubusercontent.com/adalessandro/EdP-2023-TP-Final/main/dict.csv #si no existe lo baja
 fi
 
-#nombres=$(cat dict.csv)
-
 # cat del csv | TRANSLATE-SQUEEZE: espacios por _ | egrep "palabras" | tr "dejo todo en minuscula" | ordena random toda la lista de nombres | 
 #devuelve las lineas que les pidas
 
 cat dict.csv | tr " " "_" | tr "," "\n" | egrep "[A-Za-z]" | tr [:upper:] [:lower:] | sort -R | head -n $num_img > nombres_random.txt
 
-#chmod +x nombres_random.txt
+#chmod +x nombres_random.txt ----no hizo falta
 
 while [ $cuenta -lt $num_img ]                 #bucle determinado por numero ingresado, guarda una imagen en una carpeta determinada ./img en cada vuelta.
 do                                             #la cuenta sirve para darle otro nombre a cada archivo.(hasta que funcione lo del nombre random)
     nombre=$(cat nombres_random.txt | sed -n ${cuenta_nom}p)
-    wget -P ./img https://thispersondoesnotexist.com/?$nombre.jpeg
+    wget -O $nombre.jpeg https://thispersondoesnotexist.com/
     cuenta=$((cuenta + 1))
     cuenta_nom=$((cuenta_nom + 1))
     sleep 2
 done
 
-var=$(find ./img -type f | wc -l)   #creo una variable con la cantidad de files que hay dentro de la carpeta img
+var=$(find *.jpeg -type f | wc -l)   #creo una variable con la cantidad de files que hay dentro de la carpeta img
 echo $var
+
+existe_dir=./img
+if [ -d $existe_dir ]
+then
+   echo "El directorio $existe_dir existe"  #esto se comenta
+else
+   echo "El archivo $existe_dir no existe" #esto se comenta
+   mkdir img
+fi
+
+for FILE in *.*; do
+    ext="${FILE##*.}"
+    if [ $ext == "jpeg" ]
+        then
+            mv $FILE ./img
+    fi    
+done
 
 du -sh ./img
 
-
-
-for FILE in ./*.jpeg; do mv "$FILE" "$(echo "$FILE" | cut -c 12-)"; done
-
-#aux=./img
-#for FILE in *$(ls $aux); do 
-#   cat sarasa=$aux$FILE mv "$FILE" "$(echo "$FILE" | cut -c 12-)"; done
-
-
-#if (($var == $num_img))           #si esta variable es igual al numero de img creadas pasa a comprimir la carpeta. pero comprime cada archivo individualmente.
-#then  
-#    gzip -r ./img
-#    du -sh ./img
-#fi"""
+if (($var == $num_img))           #si esta variable es igual al numero de img creadas pasa a comprimir la carpeta. pero comprime cada archivo individualmente.
+then  
+    zip -r archivo.zip ./img
+    du -sh ./img
+fi
