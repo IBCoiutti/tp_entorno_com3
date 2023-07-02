@@ -1,5 +1,6 @@
 #!/bin/bash
 
+hola=3
 existe_csv=./dict.csv #creo una variable con la ruta el archivo para confirmar si existe
 
 if [ -f $existe_csv ]
@@ -16,3 +17,7 @@ fi
 #devuelve las lineas que les pidas
 
 cat dict.csv | tr " " "_" | tr "," "\n" | egrep "[A-Za-z]" | tr [:upper:] [:lower:] | sort -R | head -n 20 > nombres_random.txt
+
+chmod +x nombres_random.txt
+
+cat nombres_random.txt | sed -n ${hola}p
