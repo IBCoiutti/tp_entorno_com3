@@ -26,7 +26,8 @@ fi
 # cat del csv | TRANSLATE-SQUEEZE: espacios por _ | egrep "palabras" | tr "dejo todo en minuscula" | ordena random toda la lista de nombres | 
 #devuelve las lineas que les pidas
 
-cat dict.csv | tr " " "_" | tr "," "\n" | egrep "[A-Za-z]" | tr [:upper:] [:lower:] | sort -R | head -n $num_img > nombres_random.txt
+#cat dict.csv | tr " " "_" | tr "," "\n" | egrep "[A-Za-z]" | tr [:upper:] [:lower:] | sort -R | head -n $num_img > nombres_random.txt este dejaba todo en minuscula
+cat dict.csv | tr " " "_" | tr "," "\n" | egrep "[A-Za-z]" | sort -R | head -n $num_img > nombres_random.txt
 
 #chmod +x nombres_random.txt ----no hizo falta
 
@@ -51,7 +52,7 @@ else
    mkdir img
 fi
 
-for FILE in *.*; do
+for FILE in *.*; do     #este for se fija si los archivos son jpeg, si son los guarda en /img
     ext="${FILE##*.}"
     if [ $ext == "jpeg" ]
         then
@@ -59,10 +60,15 @@ for FILE in *.*; do
     fi    
 done
 
+
+echo "previo a comprimir" > test.txt | md5sum >> test.txt
+
 du -sh ./img
 
 if (($var == $num_img))           #si esta variable es igual al numero de img creadas pasa a comprimir la carpeta. pero comprime cada archivo individualmente.
 then  
     zip -r archivo.zip ./img
+    echo "ya comprimido" >> test.txt | md5sum >> test.txt
+    
     du -sh ./img
 fi
