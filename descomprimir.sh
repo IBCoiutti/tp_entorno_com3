@@ -7,13 +7,13 @@ a descomprimir"""
 
 # Verificar que se paso un argumento
 if [ "$#" -ne 1 ]; then
-        echo "ERROR: Se requiere un argumento"
+        echo "ERROR: Se requieren un argumentos"
         exit 1
 fi
 
 # Obtener los nombres de los archivos de entrada
 archivo_comprimido=$1
-
+#verificacion=$2
 
 # Verificar que existe el archivo
 if [ ! -f "$archivo_comprimido" ]; then
@@ -22,8 +22,11 @@ if [ ! -f "$archivo_comprimido" ]; then
 fi
 
 
-mkdir -p imagenes_descomprimidas
 
+
+
+# Descomprimir las imagenes y guardar en un directorio
+mkdir -p imagenes_descomprimidas
 unzip "$archivo_comprimido" -d imagenes_descomprimidas
 
 echo "Se descomprimio correctamente"
