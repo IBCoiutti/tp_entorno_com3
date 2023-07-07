@@ -33,5 +33,7 @@ else
 	exit 2
 fi
 
+zip -r completo.zip ./img ./list_nombres
+
 
 exit 0
