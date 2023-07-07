@@ -8,3 +8,22 @@ la letra a.
 – por último, generar un archivo comprimido que incluya los archivos
 generados en los items anteriores y todas las imágenes. El archivo
 comprimido debe poder accederse desde fuera del contenedor."""
+
+
+ruta_img_procesadas="$PWD/img_recortadas"
+
+list_nombres_img="list_nombres_img.txt"
+
+
+if [ -d "$ruta_img_procesadas" ]; then
+	if [ ! -d "$list_nombres_img" ]; then
+		mkdir "$list_nombres_img"
+	fi
+	for archivo in "$ruta_img_procesadas"/*
+	do
+		nombre_archivo="${archivo##*/}"
+else
+	echo "La carpeta 'img_recortadas'no se encuentra en la ubicaciòn esperada "
+fi
+
+exit 0
