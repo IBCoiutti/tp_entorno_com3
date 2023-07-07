@@ -5,3 +5,4 @@
 sarse aquellas imágenes que tengan nombres de personas válidos. Entién-
 dase por nombres de personas válidos a cualquier combinación de palabras
 que empiecen con un letra mayúscula y sigan por minúsculas."""
+
