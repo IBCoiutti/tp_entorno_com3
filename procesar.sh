@@ -16,7 +16,7 @@ ruta_img="$ruta_imagenes_descomprimidas/img"
 
 
 
-ruta_recortadas="$ruta_img/recortadas"
+ruta_recortadas="img_recortadas"
 
 
 # Verificar si la carpeta "img" existe en la ruta especificada
