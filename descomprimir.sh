@@ -10,20 +10,15 @@ existe_test=./test.txt
 test1=$(cat test.txt | sed -n 2p | cut -c 1-32 )
 test2=$(cat test.txt | sed -n 4p | cut -c 1-32 )
 
+
 echo $test1
 echo $test2
 
 if [ $test1 == $test2 ] && [ -f $existe_test ]
 then
 
-	# Verificar que se paso un argumento
-	if [ "$#" -ne 1 ]; then
-        	echo "ERROR: Se requieren un argumento"
-	        exit 1
-	fi
-
 	# Obtener los nombres de los archivos de entrada
-	archivo_comprimido=$1
+	archivo_comprimido=./archivo.zip
 
 	# Verificar que existe el archivo
 	if [ ! -f "$archivo_comprimido" ]; then
