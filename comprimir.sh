@@ -10,20 +10,30 @@ generados en los items anteriores y todas las imágenes. El archivo
 comprimido debe poder accederse desde fuera del contenedor."""
 
 
-ruta_img_procesadas="$PWD/img_recortadas"
+dir_nom="./list_nombres"
 
-list_nombres_img="list_nombres_img.txt"
-
-
-if [ -d "$ruta_img_procesadas" ]; then
-	if [ ! -d "$list_nombres_img" ]; then
-		mkdir "$list_nombres_img"
-	fi
-	for archivo in "$ruta_img_procesadas"/*
-	do
-		nombre_archivo="${archivo##*/}"
+if [ -d dir_nom ]; then
+	echo "existe"
 else
-	echo "La carpeta 'img_recortadas'no se encuentra en la ubicaciòn esperada "
+	mkdir list_nombres
 fi
+
+
+if [ -d "$PWD/img_recortadas" ]; then
+	ls -p "$PWD/img_recortadas" | grep -E '[jpeg]$' |  sed 's/\.jpeg$//' > "$PWD/list_nombres/list_nombres_validos.txt"
+else 
+	echo "ERROR: no existe el directorio 'img_recortadas'"
+	exit 1
+fi
+if [ -d "$PWD/imagenes_descomprimidas/img" ]; then
+	ls -p "$PWD/imagenes_descomprimidas/img" | grep -E '[jpeg]$' | sed 's/\.jpeg$//' > "$PWD/list_nombres/list_todas_img.txt"
+	ls -p "$PWD/imagenes_descomprimidas/img" | grep -E '[jpeg]$' | sed 's/\.jpeg$//' | grep -E '[a]$' > "$PWD/list_nombres/list_personas_a.txt "
+else 
+	echo "ERROR: no existe el directorio 'imagenes_descomprimidas'"
+	exit 2
+fi
+
+zip -r completo.zip ./img ./list_nombres
+
 
 exit 0

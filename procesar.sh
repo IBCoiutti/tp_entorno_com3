@@ -21,7 +21,7 @@ ruta_recortadas="img_recortadas"
 
 # Verificar si la carpeta "img" existe en la ruta especificada
 if [ -d "$ruta_img" ]; then
-	
+
 	if [ ! -d "$ruta_recortadas" ]; then
 		mkdir "$ruta_recortadas"
 	fi
@@ -29,7 +29,7 @@ if [ -d "$ruta_img" ]; then
 	do
 		nombre_archivo="${archivo##*/}"
 		if [[ $nombre_archivo =~ ^[A-Z] ]]; then
-			
+
 			convert "$archivo" -resize 512x512^ -gravity center -extent 512x512 "$ruta_recortadas/$nombre_archivo"
 
 			echo "Imagen recortada: $nombre_archivo"
