@@ -12,7 +12,8 @@ mostrar_menu() {
 	echo "1. Generador de imagenes."
 	echo "2. Descomprimir imagenes."
 	echo "3. Procesar y recortar imagenes."
-	echo "4. Comprimir imagenes"
+	echo "4. Comprimir archivos"
+	echo "5. Exit"
 	echo "=============="
 
 	read -p "Seleccione una opciòn: " opcion
@@ -40,6 +41,10 @@ ejecutar_script() {
 			# Ejecutar script 4
 			./comprimir.sh
 			;;
+		5)
+			# Salir del menù
+			exit 1
+			;;
 		*)
 			# Opciòn invàlida
 			echo "Opciòn invàlida. Intente nuevamente."
@@ -54,3 +59,4 @@ while true; do
 done
 
 
+exit 0
