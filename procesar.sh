@@ -21,7 +21,7 @@ if [ -d "$ruta_img" ]; then
 	fi
 	for archivo in "$ruta_img"/*
 	do
-		nombre_archivo="${archivo##S*/}"
+		nombre_archivo="${archivo##*/}"
 		if [[ $nombre_archivo =~ ^[A-Z] ]]; then
 
 			convert "$archivo" -resize 512x512^ -gravity center -extent 512x512 "$ruta_recortadas/$nombre_archivo"
