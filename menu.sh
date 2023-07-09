@@ -17,10 +17,12 @@ mostrar_menu() {
 	echo "=============="
 
 	read -p "Seleccione una opciòn: " opcion
+
 }
 
-
 # Funciòn para ejecutar el script seleccionado
+
+
 
 ejecutar_script() {
 

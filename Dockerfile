@@ -1,8 +1,8 @@
 FROM ubuntu:22.04
 LABEL manteiner="Coiutti, Pilafis, Ferrarese"
 
-RUN apt-get update && apt-get install -y wget
-RUN apt install imagemagick
+RUN apt-get update && apt-get install -y wget zip unzip
+RUN apt install imagemagick -y
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
