@@ -8,7 +8,7 @@ anteriores."""
 mostrar_menu() {
 	clear # Limpiar la pantalla
 
-	echo "==== MENÙ===="
+	echo "==== MENÙ ===="
 	echo "1. Generador de imagenes."
 	echo "2. Descomprimir imagenes."
 	echo "3. Procesar y recortar imagenes."
