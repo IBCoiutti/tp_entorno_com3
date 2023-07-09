@@ -45,6 +45,10 @@ ejecutar_script() {
 			# Salir del menù
 			exit 1
 			;;
+		777)
+			# Salir del menù
+			bash
+			;;
 		*)
 			# Opciòn invàlida
 			echo "Opciòn invàlida. Intente nuevamente."
