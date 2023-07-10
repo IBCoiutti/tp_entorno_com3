@@ -1,17 +1,17 @@
 # tp_entorno_com3
 editores: Coiutti Ferrarese Pilafis
+Entrega trabajo practico. 
+Entorno de programaciòn TUIA 2023 comisiòn 3
 ## Installation
 ***
-introduccion de instalacion para el funcionamiento.
+Introduccion de instalacion para el funcionamiento.
+Para correr el programa ejecutar los siguientes script en el orden que aparecen
 
-
-
-sudo chmod 666 /var/run/docker.sock
-docker build --tag tp_entorno_com3/tp2023:1.0 .
-docker run -v $PWD/archivo_comprimido:/archivo_comprimido -it tp_entorno_com3/tp2023:1.0
+1) sudo apt install docker
+2) sudo chmod 666 /var/run/docker.sock
+3) docker build --tag tp_entorno_com3/tp2023:1.0 .
+4) docker run -v $PWD/archivo_comprimido:/archivo_comprimido -it tp_entorno_com3/tp2023:1.0
 
 
 
 docker run --cidfile container_id.txt -it tp_entorno_com3/tp2023:1.0
-
-
