@@ -14,4 +14,7 @@ Para correr el programa ejecutar los siguientes script en el orden que aparecen
 
 
 
-docker run --cidfile container_id.txt -it tp_entorno_com3/tp2023:1.0
+
+script opcional:
+1) docker run --cidfile container_id.txt -it tp_entorno_com3/tp2023:1.0
+2) recuperar_archivo.sh
