@@ -3,21 +3,22 @@
 • menu.sh: Debe incluirse un menú para elegir cada una de las opciones
 anteriores."""
 
-
+clear
 # Funciòn para mostrar el menù y solicitar una opciòn al usuario
 mostrar_menu() {
-	clear # Limpiar la pantalla
-
+	echo "              "
 	echo "==== MENÙ ===="
 	echo "1. Generador de imagenes."
 	echo "2. Descomprimir imagenes."
 	echo "3. Procesar y recortar imagenes."
 	echo "4. Comprimir archivos"
-	echo "5. Exit"
+	echo "5. Limpiar pantalla"
+	echo "6. Exit"
 	echo "=============="
+	echo "              "
 
-	read -p "Seleccione una opciòn: " opcion
-
+	read -p "Seleccione una opcion: " opcion
+	echo "              "
 }
 
 # Funciòn para ejecutar el script seleccionado
@@ -44,6 +45,10 @@ ejecutar_script() {
 			./comprimir.sh
 			;;
 		5)
+			# Limpiar la pantalla
+			clear
+			;;
+		6)
 			# Salir del menù
 			exit 1
 			;;

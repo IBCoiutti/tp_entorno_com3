@@ -61,14 +61,15 @@ for FILE in *.*; do     #este for se fija si los archivos son jpeg, si son los g
 done
 
 
-echo "previo a comprimir" > test.txt | md5sum >> test.txt
+#echo "previo a comprimir" > test.txt | md5sum  >> test.txt
 
-du -sh ./img
+#du -sh ./img
 
 if (($var == $num_img))           #si esta variable es igual al numero de img creadas pasa a comprimir la carpeta. pero comprime cada archivo individualmente.
 then  
     zip -r archivo.zip ./img
-    echo "ya comprimido" >> test.txt | md5sum >> test.txt
-    
-    du -sh ./img
+    md5sum archivo.zip > test.txt
+    echo "   "
+    echo "Se comprimio el archivo: archivo.zip y se guardo la suma de verificaciones en test.txt"
+    #du -sh ./img
 fi
