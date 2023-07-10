@@ -1,5 +1,5 @@
 # tp_entorno_com3
-editores: Coiutti Ferrarese Pilafis
+Editores: Coiutti Ferrarese Pilafis
 Entrega trabajo practico. 
 Entorno de programaciòn TUIA 2023 comisiòn 3
 ## Installation
