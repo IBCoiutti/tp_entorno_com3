@@ -6,7 +6,7 @@ ocurrió algún error se debe informar al usuario de lo contrario se procede
 a descomprimir"""
 
 # Ingresa y lee ambos argumentos
-echo "Ingese arhcivo para descomprimir: "
+echo "Ingrese archivo para descomprimir: "
 read archivo_comp
 echo "Ingrese archivo de suma de verificacion: "
 read verf

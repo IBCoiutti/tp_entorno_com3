@@ -37,7 +37,7 @@ else
 	exit 2
 fi
 
-zip -r ./archivo_comprimido/completo.zip ./img ./list_nombres
+zip -r ./archivo_comprimido/completo.zip ./img ./list_nombres ./img_recortadas
 
 
 exit 0
