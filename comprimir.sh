@@ -39,5 +39,6 @@ fi
 
 zip -r ./archivo_comprimido/completo.zip ./img ./list_nombres ./img_recortadas
 
+echo "Se genero correctamente el archivo comprimido con todas las imagenes, las procesadas y las listas de nombres."
 
 exit 0
