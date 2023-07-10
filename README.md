@@ -1,5 +1,8 @@
 # tp_entorno_com3
-Coiutti_Ferrarese_Pilafis
+editores: Coiutti Ferrarese Pilafis
+## Installation
+***
+introduccion de instalacion para el funcionamiento.
 
 
 
